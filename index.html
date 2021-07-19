@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Masai School</title>
+        <style type="text/css">
+            button {
+                width: 64px;
+                height: 64px;
+                background-color: black; 
+                color: white; 
+                font-size: 32px;
+                margin: 10px;
+            }
+
+            .keys_row {
+                text-align: center;
+            }
+
+            #keys_output {
+                background-color: wheat;
+                margin: 20px;
+                font-size: 48px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="keys_output">
+            MASAI School
+        </div>
+        <div class="keys_row">
+            <button onclick="button_clicked('Q')">Q</button>
+            <button onclick="button_clicked('W')">W</button>
+            <button onclick="button_clicked('E')">E</button>
+            <button onclick="button_clicked('R')">R</button>
+            <button onclick="button_clicked('T')">T</button>
+            <button onclick="button_clicked('Y')">Y</button>
+            <button onclick="button_clicked('U')">U</button>
+            <button onclick="button_clicked('I')">I</button>
+            <button onclick="button_clicked('O')">O</button>
+            <button onclick="button_clicked('P')">P</button>
+        </div>
+        <div class="keys_row">
+            <button onclick="button_clicked('A')">A</button>
+            <button onclick="button_clicked('S')">S</button>
+            <button onclick="button_clicked('D')">D</button>
+            <button onclick="button_clicked('F')">F</button>
+            <button onclick="button_clicked('G')">G</button>
+            <button onclick="button_clicked('H')">H</button>
+            <button onclick="button_clicked('J')">J</button>
+            <button onclick="button_clicked('K')">K</button>
+            <button onclick="button_clicked('L')">L</button>
+        </div>
+        <div class="keys_row">
+            <button onclick="button_clicked('Z')">Z</button>
+            <button onclick="button_clicked('X')">X</button>
+            <button onclick="button_clicked('C')">C</button>
+            <button onclick="button_clicked('V')">V</button>
+            <button onclick="button_clicked('B')">B</button>
+            <button onclick="button_clicked('N')">N</button>
+            <button onclick="button_clicked('M')">M</button>
+        </div>
+        <div class="keys_row" >
+            <button  style="width:180px"  id="space_btn" onclick="button_clicked(' ')">space</button>
+            <button style="width:180px"  id="clear_btn" onclick="text_back()">Clear </button>
+        </div>
+        <div class="keys_row">
+            <h1>CAPS LOCK</h1>
+            <button onclick="caps_clicked()" id="caps_btn">T</button>
+        </div>
+
+        <script>
+            var output_text = "";
+            var caps = true;
+            function text_back(){
+                output_text=output_text.slice(0,-1);
+                var output = document.getElementById("keys_output");
+
+                output.textContent = output_text;
+
+            }
+            
+            function button_clicked(character) {
+                if (caps) {
+                    output_text = output_text + character;
+                } else {
+                    var lower_character = character.toLowerCase();
+                    output_text = output_text + lower_character;
+                }
+                
+                var output = document.getElementById("keys_output");
+                output.textContent = output_text;
+            }
+
+            function caps_clicked(){
+                var caps_btn = document.getElementById("caps_btn");
+                if (caps) {
+                    caps_btn.textContent = "f";
+                    caps = false;
+                } else {
+                    caps_btn.textContent = "T";
+                    caps = true;
+                }
+            }
+
+        </script>
+    </body>
+</html>
